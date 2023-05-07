@@ -205,8 +205,15 @@ window.addEventListener('DOMContentLoaded', function() {
     //     });
     // });
 
-    getResource('http://localhost:3000/menu')
-    .then(data => createCard(data))
+
+    // Axios
+    axios.get('http://localhost:3000/menu')
+    .then(data => createCard(data.data));
+
+
+    // Заменяем класс карточки товаров
+    // getResource('http://localhost:3000/menu')
+    // .then(data => createCard(data))
 
     function createCard(data) {
         data.forEach(({img, altimg, title, descr, price}) => {
